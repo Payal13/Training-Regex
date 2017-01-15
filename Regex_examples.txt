@@ -1,0 +1,33 @@
+# 1. Returns index where it gets exact match
+/Jo/ =~ 'Josh'  #Output => 0
+
+#2. Returns Data which gets matched
+/sh/.match('Josh sofware') #Output => MatchData "y"
+
+#3. Character classes
+/[0-9m-z]/.match('x')  #Output => MatchData "x"
+
+#4. Capturing
+(?<date>\d\d-\d\d-\d\d\d\d)/   =~ "my birthdate is 11-08-1909"    #Output => $1 : 11-08-1909
+
+#5. Repitition
+/[0-9]+/.match("abc56789")  #Output <MatchData "56789"> 
+/[a-d]*/.match("bcazz")   #Output <MatchData "bca">
+/[a-d]?/.match("z")       #Output <MatchData " "> One or zero time
+/[a-d]{2}/.match("cbzc")  #Output <MatchData "cb"> Exactly 2 times
+/[a-d]{2,5}/.match("ccbabzccccc") #Output <MatchData "ccbab"> At least 2 times at most 5 times
+
+#6. Groping 
+/(Abhi)|(Payal)/ =~ "PayalAbhi" # Output => 0 Matched with Payal at 0th index
+
+#7. (.)for matching any charcter except new line and (*) for repitition
+/.*/ =~ "Josh stands for enthusiasm and passion." # Output => 0 
+
+#8. for validating any date example
+/\d{2}-\d{2}-\d{4}/ =~ "date:  24-03-2014"  #Output => 7 
+
+
+
+
+
+
